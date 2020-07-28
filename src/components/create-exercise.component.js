@@ -3,7 +3,7 @@ import axios from 'axios';
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 
-const backend = 'https://activity-tracker-mern-backend.herokuapp.com'
+// const backend = 'https://activity-tracker-mern-backend.herokuapp.com'
 
 export default class CreateExercise extends Component {
   constructor(props) {
@@ -25,7 +25,7 @@ export default class CreateExercise extends Component {
   }
 
   componentDidMount() {
-    axios.get(backend+'/users/')
+    axios.get(`${process.env.REACT_APP_BACKEND}`+'/users/')
       .then(response => {
         if (response.data.length > 0) {
           this.setState({
@@ -76,7 +76,7 @@ export default class CreateExercise extends Component {
 
     console.log(exercise);
 
-    axios.post(backend+'/exercises/add', exercise)
+    axios.post(`${process.env.REACT_APP_BACKEND}`+'/exercises/add', exercise)
       .then(res => console.log(res.data));
 
     window.location = '/';

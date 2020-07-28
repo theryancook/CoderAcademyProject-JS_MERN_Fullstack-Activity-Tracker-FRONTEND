@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 
-const backend = 'https://activity-tracker-mern-backend.herokuapp.com'
+// const backend = 'https://activity-tracker-mern-backend.herokuapp.com'
 
 export default class CreateUser extends Component {
   constructor(props) {
@@ -30,7 +30,7 @@ export default class CreateUser extends Component {
 
     console.log(user);
 
-    axios.post(backend+'/users/add', user)
+    axios.post(`${process.env.REACT_APP_BACKEND}`+'/users/add', user)
       .then(res => console.log(res.data));
 
     this.setState({

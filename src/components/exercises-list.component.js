@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 
-const backend = 'https://activity-tracker-mern-backend.herokuapp.com'
+// const backend = 'https://activity-tracker-mern-backend.herokuapp.com'
 
 const Exercise = props => (
   <tr>
@@ -26,7 +26,7 @@ export default class ExercisesList extends Component {
   }
 
   componentDidMount() {
-    axios.get(backend+'/exercises/')
+    axios.get(`${process.env.REACT_APP_BACKEND}`+'/exercises/')
       .then(response => {
         this.setState({ exercises: response.data })
       })
@@ -36,7 +36,7 @@ export default class ExercisesList extends Component {
   }
 
   deleteExercise(id) {
-    axios.delete(backend+'/exercises/'+id)
+    axios.delete(`${process.env.REACT_APP_BACKEND}`+'/exercises/'+id)
       .then(response => { console.log(response.data)});
 
     this.setState({

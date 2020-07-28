@@ -3,7 +3,7 @@ import axios from 'axios';
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 
-const backend = 'https://activity-tracker-mern-backend.herokuapp.com'
+// const backend = 'https://activity-tracker-mern-backend.herokuapp.com'
 
 export default class EditExercise extends Component {
   constructor(props) {
@@ -25,7 +25,7 @@ export default class EditExercise extends Component {
   }
 
   componentDidMount() {
-    axios.get(backend+'/exercises/'+this.props.match.params.id)
+    axios.get(`${process.env.REACT_APP_BACKEND}`+'/exercises/'+this.props.match.params.id)
       .then(response => {
         this.setState({
           username: response.data.username,
@@ -38,7 +38,7 @@ export default class EditExercise extends Component {
         console.log(error);
       })
 
-    axios.get(backend+'/users/')
+    axios.get(`${process.env.REACT_APP_BACKEND}`+'/users/')
       .then(response => {
         if (response.data.length > 0) {
           this.setState({
@@ -88,7 +88,7 @@ export default class EditExercise extends Component {
 
     console.log(exercise);
 
-    axios.post(backend+'/exercises/update/'+this.props.match.params.id, exercise)
+    axios.post(`${process.env.REACT_APP_BACKEND}`+'/exercises/update/'+this.props.match.params.id, exercise)
       .then(res => console.log(res.data));
 
     window.location = '/';
