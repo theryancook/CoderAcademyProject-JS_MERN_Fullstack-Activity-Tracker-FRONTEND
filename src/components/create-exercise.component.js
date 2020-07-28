@@ -7,6 +7,8 @@ export default class CreateExercise extends Component {
   constructor(props) {
     super(props);
 
+    const backend = 'https://activity-tracker-mern-backend.herokuapp.com'
+
     this.onChangeUsername = this.onChangeUsername.bind(this);
     this.onChangeDescription = this.onChangeDescription.bind(this);
     this.onChangeDuration = this.onChangeDuration.bind(this);
@@ -23,7 +25,7 @@ export default class CreateExercise extends Component {
   }
 
   componentDidMount() {
-    axios.get('http://localhost:5000/users/')
+    axios.get(backend+'/users/')
       .then(response => {
         if (response.data.length > 0) {
           this.setState({
@@ -74,7 +76,7 @@ export default class CreateExercise extends Component {
 
     console.log(exercise);
 
-    axios.post('http://localhost:5000/exercises/add', exercise)
+    axios.post(backend+'/exercises/add', exercise)
       .then(res => console.log(res.data));
 
     window.location = '/';
