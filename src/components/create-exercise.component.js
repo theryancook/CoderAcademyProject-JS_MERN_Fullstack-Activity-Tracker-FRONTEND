@@ -8,7 +8,6 @@ const backend = 'https://activity-tracker-mern-backend.herokuapp.com'
 export default class CreateExercise extends Component {
   constructor(props) {
     super(props);
-
     
     this.onChangeUsername = this.onChangeUsername.bind(this);
     this.onChangeDescription = this.onChangeDescription.bind(this);

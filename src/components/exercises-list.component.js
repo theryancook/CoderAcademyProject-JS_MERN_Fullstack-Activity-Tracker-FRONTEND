@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 
+const backend = 'https://activity-tracker-mern-backend.herokuapp.com'
+
 const Exercise = props => (
   <tr>
     <td>{props.exercise.username}</td>
@@ -24,7 +26,7 @@ export default class ExercisesList extends Component {
   }
 
   componentDidMount() {
-    axios.get('http://localhost:5000/exercises/')
+    axios.get(backend+'/exercises/')
       .then(response => {
         this.setState({ exercises: response.data })
       })
@@ -34,7 +36,7 @@ export default class ExercisesList extends Component {
   }
 
   deleteExercise(id) {
-    axios.delete('http://localhost:5000/exercises/'+id)
+    axios.delete(backend+'/exercises/'+id)
       .then(response => { console.log(response.data)});
 
     this.setState({
