@@ -26,7 +26,7 @@ export default class ExercisesList extends Component {
   }
 
   componentDidMount() {
-    axios.get(`${process.env.REACT_APP_BACKEND}`+'/exercises/')
+    axios.get(`${process.env.REACT_APP_BACKEND}/exercises/`)
       .then(response => {
         this.setState({ exercises: response.data })
       })
@@ -36,7 +36,7 @@ export default class ExercisesList extends Component {
   }
 
   deleteExercise(id) {
-    axios.delete(`${process.env.REACT_APP_BACKEND}`+'/exercises/'+id)
+    axios.delete(`${process.env.REACT_APP_BACKEND}/exercises/${id}`)
       .then(response => { console.log(response.data)});
 
     this.setState({
