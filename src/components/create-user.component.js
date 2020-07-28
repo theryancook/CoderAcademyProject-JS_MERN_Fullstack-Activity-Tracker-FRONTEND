@@ -30,7 +30,6 @@ export default class CreateUser extends Component {
 
     console.log(user);
 
-    // axios.post(`${process.env.REACT_APP_BACKEND}/users/add`, user)
     axios.post(`${process.env.REACT_APP_BACKEND}/users/add`, user)
       .then(res => console.log(res.data));
 

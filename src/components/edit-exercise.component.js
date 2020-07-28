@@ -25,7 +25,7 @@ export default class EditExercise extends Component {
   }
 
   componentDidMount() {
-    axios.get(`${process.env.REACT_APP_BACKEND}/exercises/`+this.props.match.params.id)
+    axios.get(`${process.env.REACT_APP_BACKEND}/exercises/${this.props.match.params.id}`)
       .then(response => {
         this.setState({
           username: response.data.username,
