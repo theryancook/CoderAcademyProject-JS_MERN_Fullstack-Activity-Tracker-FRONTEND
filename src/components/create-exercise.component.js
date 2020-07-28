@@ -3,12 +3,13 @@ import axios from 'axios';
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 
+const backend = 'https://activity-tracker-mern-backend.herokuapp.com'
+
 export default class CreateExercise extends Component {
   constructor(props) {
     super(props);
 
-    const backend = 'https://activity-tracker-mern-backend.herokuapp.com'
-
+    
     this.onChangeUsername = this.onChangeUsername.bind(this);
     this.onChangeDescription = this.onChangeDescription.bind(this);
     this.onChangeDuration = this.onChangeDuration.bind(this);
