@@ -10,10 +10,10 @@ export default class Navbar extends Component {
         <div className="collpase navbar-collapse">
         <ul className="navbar-nav mr-auto">
           <li className="navbar-item">
-          <Link to="/" className="nav-link">List Of Activities</Link>
+          <Link to="/" className="nav-link">Full List Of Activities</Link>
           </li>
           <li className="navbar-item">
-          <Link to="/create" className="nav-link">Add New Activity</Link>
+          <Link to="/create" className="nav-link">Log New Activity</Link>
           </li>
           <li className="navbar-item">
           <Link to="/user" className="nav-link">Create New User</Link>
