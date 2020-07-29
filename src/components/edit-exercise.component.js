@@ -89,9 +89,10 @@ export default class EditExercise extends Component {
     console.log(exercise);
 
     axios.post(`${process.env.REACT_APP_BACKEND}/exercises/update/${this.props.match.params.id}`, exercise)
-      .then(res => console.log(res.data));
+      .then(res => {console.log(res.data)
+      window.location = '/'})
 
-    window.location = '/';
+    
   }
 
   render() {
